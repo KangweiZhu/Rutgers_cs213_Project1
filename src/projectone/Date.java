@@ -76,9 +76,13 @@ public class Date implements Comparable<Date> {
             return false;
         }
     }
+    public boolean isValidDob(){
+        return year <= Calendar.getInstance().get(Calendar.YEAR);
+    }
 
     public boolean isValid() {
         boolean flag = false;
+        Date date = new Date();
         if (year >= 0) {
             if (month == January || month == March || month == May || month == July || month == August || month == December || month == October) {
                 if (day > 0 && day <= 31) {
@@ -112,6 +116,7 @@ public class Date implements Comparable<Date> {
         }
         return true;
     }
+
 
     @Override
     public String toString() {
@@ -148,5 +153,7 @@ public class Date implements Comparable<Date> {
         System.out.println(date);
         System.out.println(newD.isValid());
         System.out.println(d.month + " " + d.day + " " + d.year);
+        Date dob = new Date("7/3/2002");
+        System.out.println(dob.isValidDob());
     }
 }

@@ -38,4 +38,9 @@ public class FitnessClass{
     public void setTime(String time) {
         this.time = time;
     }
+
+    @Override
+    public String toString(){
+        return null;
+    }
 }

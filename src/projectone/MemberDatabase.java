@@ -40,7 +40,7 @@ public class MemberDatabase{
         if (size == mlist.length - 1) {
             grow();
         }
-        mlist[size + 1] = member;
+        mlist[size] = member;
         size++;
         return true;
     }
@@ -59,18 +59,18 @@ public class MemberDatabase{
     }
 
     public void print() {
-        for (int i = 0; i < mlist.length; i++) {
+        for (int i = 0; i < size; i++) {
             System.out.println(mlist[i].toString());
         }
     }
 
     public void printByCounty() {
         int step = 1;
-        while (step < mlist.length) {
+        while (step < size) {
             step = 2 * step + 1;
         }
         while (step >= 1) {
-            for (int i = step; i < mlist.length; i++) {
+            for (int i = step; i < size; i++) {
                 for (int j = i; j >= step; j -= step) {
                     if (less(mlist[j].getLocation(), mlist[j - step].getLocation())) {
                         exch(mlist, j, j - step);
@@ -86,11 +86,11 @@ public class MemberDatabase{
 
     public void printByExpirationDate() {
         int step = 1;
-        while (step < mlist.length) {
+        while (step < size) {
             step = 2 * step + 1;
         }
         while (step >= 1) {
-            for (int i = step; i < mlist.length; i++) {
+            for (int i = step; i < size; i++) {
                 for (int j = i; j >= step; j -= step) {
                     if (less(mlist[j].getExpire(), mlist[j - step].getExpire())) {
                         exch(mlist, j, j - step);
@@ -106,11 +106,11 @@ public class MemberDatabase{
 
     public void printByName() {
         int step = 1;
-        while (step < mlist.length) {
+        while (step < size) {
             step = 2 * step + 1;
         }
         while (step >= 1) {
-            for (int i = step; i < mlist.length; i++) {
+            for (int i = step; i < size; i++) {
                 for (int j = i; j >= step; j -= step) {
                     if (less(mlist[j].getLname(), mlist[j - step].getLname())) {
                         exch(mlist, j, j - step);
