@@ -17,6 +17,12 @@ public class Member implements Comparable<Member>{
         this.location = location;
     }
 
+    public Member(String fname, String lname, Date dob){
+        this.fname = fname;
+        this.lname = lname;
+        this.dob = dob;
+    }
+
     public String getFname() {
         return fname;
     }
