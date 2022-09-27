@@ -82,11 +82,11 @@ public class Member implements Comparable<Member>{
     }
 
     public String reformat(Member member){
-        return member.getFname() + member.getLname();
+        return member.getLname() + member.getFname();
     }
 
     @Override
     public int compareTo(Member member) {
-        return (this.fname + this.lname).compareTo(reformat(member));
+        return reformat(this).compareTo(reformat(member));
     }
 }
