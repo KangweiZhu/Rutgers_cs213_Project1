@@ -1,15 +1,16 @@
 package projectone;
 
-public class Member implements Comparable<Member>{
+public class Member implements Comparable<Member> {
     private String fname;
     private String lname;
     private Date dob;
     private Date expire;
     private Location location;
 
-    public Member(){}
+    public Member() {
+    }
 
-    public Member(String fname, String lname, Date dob, Date expire, Location location){
+    public Member(String fname, String lname, Date dob, Date expire, Location location) {
         this.fname = fname;
         this.lname = lname;
         this.dob = dob;
@@ -17,7 +18,7 @@ public class Member implements Comparable<Member>{
         this.location = location;
     }
 
-    public Member(String fname, String lname, Date dob){
+    public Member(String fname, String lname, Date dob) {
         this.fname = fname;
         this.lname = lname;
         this.dob = dob;
@@ -70,18 +71,18 @@ public class Member implements Comparable<Member>{
     }
 
     @Override
-    public boolean equals(Object obj){
-        if (obj instanceof Member){
-            Member member = (Member)obj;
+    public boolean equals(Object obj) {
+        if (obj instanceof Member) {
+            Member member = (Member) obj;
             boolean isFNameSame = this.fname.equals(member.fname);
             boolean isLNameSame = this.lname.equals(member.lname);
-            boolean isDobSame = this.dob.compareTo(member.dob)==0;
+            boolean isDobSame = this.dob.compareTo(member.dob) == 0;
             return isFNameSame == isLNameSame == isDobSame;
         }
         return false;
     }
 
-    public String reformat(Member member){
+    public String reformat(Member member) {
         return member.getLname() + member.getFname();
     }
 

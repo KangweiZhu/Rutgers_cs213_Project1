@@ -78,7 +78,8 @@ public class Date implements Comparable<Date> {
             return false;
         }
     }
-    public boolean isValidDob(){
+
+    public boolean isValidDob() {
         return year <= Calendar.getInstance().get(Calendar.YEAR);
     }
 
@@ -147,7 +148,7 @@ public class Date implements Comparable<Date> {
             }
         }
     }
-
+//Integer.parseInt()
     public static void main(String[] args) {
         Date d = new Date();
         String date = d.toString();

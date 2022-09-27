@@ -1,6 +1,6 @@
 package projectone;
 
-public class MemberDatabase{
+public class MemberDatabase {
     private Member[] mlist;
     private int size;
     private static final int INCREMENT = 4;
@@ -33,7 +33,7 @@ public class MemberDatabase{
     }
 
     public boolean add(Member member) {
-        if (find(member) != -1){
+        if (find(member) != -1) {
             System.out.println("This member already exist in database");
             return false;
         }
@@ -59,9 +59,10 @@ public class MemberDatabase{
         return true;
     }
 
-    public boolean contains(Member member){
+    public boolean contains(Member member) {
         return find(member) != -1;
     }
+
     public void print() {
         for (int i = 0; i < size; i++) {
             System.out.println(mlist[i].toString());
@@ -76,10 +77,10 @@ public class MemberDatabase{
         while (step >= 1) {
             for (int i = step; i < size; i++) {
                 for (int j = i; j >= step; j -= step) {
-                    if (mlist[j].getLocation().reformat().compareTo(mlist[j - step].getLocation().reformat()) < 0){
+                    if (mlist[j].getLocation().reformat().compareTo(mlist[j - step].getLocation().reformat()) < 0) {
                         Member temp = mlist[j];
-                        mlist[j] = mlist[j-step];
-                        mlist[j-step] = temp;
+                        mlist[j] = mlist[j - step];
+                        mlist[j - step] = temp;
                     } else {
                         break;
                     }
@@ -98,10 +99,10 @@ public class MemberDatabase{
         while (step >= 1) {
             for (int i = step; i < size; i++) {
                 for (int j = i; j >= step; j -= step) {
-                    if (mlist[j].getExpire().compareTo(mlist[j - step].getExpire()) <0) {
+                    if (mlist[j].getExpire().compareTo(mlist[j - step].getExpire()) < 0) {
                         Member temp = mlist[j];
-                        mlist[j] = mlist[j-step];
-                        mlist[j-step] = temp;
+                        mlist[j] = mlist[j - step];
+                        mlist[j - step] = temp;
                     } else {
                         break;
                     }
@@ -122,8 +123,8 @@ public class MemberDatabase{
                 for (int j = i; j >= step; j -= step) {
                     if (mlist[j].compareTo(mlist[j - step]) < 0) {
                         Member temp = mlist[j];
-                        mlist[j] = mlist[j-step];
-                        mlist[j-step] = temp;
+                        mlist[j] = mlist[j - step];
+                        mlist[j - step] = temp;
                     } else {
                         break;
                     }
@@ -134,7 +135,7 @@ public class MemberDatabase{
         print();
     }
 
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 

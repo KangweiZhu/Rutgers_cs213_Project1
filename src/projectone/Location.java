@@ -22,7 +22,8 @@ public enum Location {
     public String getCountyName() {
         return countyName;
     }
-    public String reformat(){
+
+    public String reformat() {
         return countyName + zipCode;
     }
 }
