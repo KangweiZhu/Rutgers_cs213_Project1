@@ -55,9 +55,13 @@ public class MemberDatabase{
                 mlist[i] = mlist[i + 1];
             }
         }
+        size--;
         return true;
     }
 
+    public boolean contains(Member member){
+        return find(member) != -1;
+    }
     public void print() {
         for (int i = 0; i < size; i++) {
             System.out.println(mlist[i].toString());
@@ -72,8 +76,10 @@ public class MemberDatabase{
         while (step >= 1) {
             for (int i = step; i < size; i++) {
                 for (int j = i; j >= step; j -= step) {
-                    if (less(mlist[j].getLocation(), mlist[j - step].getLocation())) {
-                        exch(mlist, j, j - step);
+                    if (mlist[j].getLocation().reformat().compareTo(mlist[j - step].getLocation().reformat()) < 0){
+                        Member temp = mlist[j];
+                        mlist[j] = mlist[j-step];
+                        mlist[j-step] = temp;
                     } else {
                         break;
                     }
@@ -92,8 +98,10 @@ public class MemberDatabase{
         while (step >= 1) {
             for (int i = step; i < size; i++) {
                 for (int j = i; j >= step; j -= step) {
-                    if (less(mlist[j].getExpire(), mlist[j - step].getExpire())) {
-                        exch(mlist, j, j - step);
+                    if (mlist[j].getExpire().compareTo(mlist[j - step].getExpire()) <0) {
+                        Member temp = mlist[j];
+                        mlist[j] = mlist[j-step];
+                        mlist[j-step] = temp;
                     } else {
                         break;
                     }
@@ -112,8 +120,10 @@ public class MemberDatabase{
         while (step >= 1) {
             for (int i = step; i < size; i++) {
                 for (int j = i; j >= step; j -= step) {
-                    if (less(mlist[j].getLname(), mlist[j - step].getLname())) {
-                        exch(mlist, j, j - step);
+                    if (mlist[j].compareTo(mlist[j - step]) < 0) {
+                        Member temp = mlist[j];
+                        mlist[j] = mlist[j-step];
+                        mlist[j-step] = temp;
                     } else {
                         break;
                     }
@@ -124,15 +134,10 @@ public class MemberDatabase{
         print();
     }
 
-    public void exch(Comparable[] compArr, int index1, int index2) {
-        Comparable temp = compArr[index1];
-        compArr[index1] = compArr[index2];
-        compArr[index2] = temp;
+    public int getSize(){
+        return size;
     }
 
-    public boolean less(Comparable c1, Comparable c2) {
-        return c1.compareTo(c2) <= 0;
-    }
 
     public static void main(String[] args) {
         String d = "9/22/2022";

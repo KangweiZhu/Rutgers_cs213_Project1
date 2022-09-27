@@ -1,7 +1,7 @@
 package projectone;
 
 public enum Location {
-    BRIDGEWATER("08807","SomersetCounty"),
+    Bridgewater("08807", "SomersetCounty"),
     Edison("08837", "Middlesex County"),
     Franklin("08873", "Somerset County"),
     Piscataway("08854", "Middlesex County"),
@@ -10,8 +10,19 @@ public enum Location {
     private final String zipCode;
     private final String countyName;
 
-    Location(String zipCode, String countyName){
+    Location(String zipCode, String countyName) {
         this.zipCode = zipCode;
         this.countyName = countyName;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public String getCountyName() {
+        return countyName;
+    }
+    public String reformat(){
+        return countyName + zipCode;
     }
 }

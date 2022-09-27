@@ -22,6 +22,8 @@ public class Date implements Comparable<Date> {
     private static final int October = 10;
     private static final int November = 11;
     private static final int December = 12;
+    private static final int firstDayOfMonth = 0;
+    private static final int lastDayOfMonth = 30;
 
     public Date() {
         Calendar calendar = Calendar.getInstance();
